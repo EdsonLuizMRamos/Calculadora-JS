@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/6981ddf6b6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/styles.css">
+    <title>Calculadora JS</title>
+  </head>
+  <body>
+    
+    <div class="container">
+      <div class="history" id="historico">
+        <div>
+          <h1 class="h-titulo">Historico</h1>
+          <div class="display" id="historicoDisplay">
+          </div>
+        </div>
+      </div>
+      <div class="calculator">
+
+        <header class="header">
+            <button class="but-historico" id="but-historico"><i class="bh-icon fa-solid fa-clock-rotate-left"></i></button>
+            <h1 class="c-titulo">Calculator JS</h1>
+        </header>
+
+        <div class="display">
+          <div>
+            <p class="d-calculo" id="calculoDisplay"></p>
+            <p class="d-resultado" id="resultadoDisplay">0</p>
+          </div>
+        </div>
+
+        <div class="teclado">
+          <div class="teclas">
+            <button class="tecla-deletar" id="limpar">C</button>
+            <button class="tecla-deletar" id="limparTudo">AC</button>
+            <button class="tecla" data-valor="*">*</button>
+            <button class="tecla" data-valor="/">/</button>
+          
+            <button class="tecla" data-valor="7">7</button>
+            <button class="tecla" data-valor="8">8</button>
+            <button class="tecla" data-valor="9">9</button>
+            <button class="tecla" data-valor="-">-</button>
+          
+            <button class="tecla" data-valor="4">4</button>
+            <button class="tecla" data-valor="5">5</button>
+            <button class="tecla" data-valor="6">6</button>
+            <button class="tecla" data-valor="+">+</button>
+          
+            <button class="tecla" data-valor="1">1</button>
+            <button class="tecla" data-valor="2">2</button>
+            <button class="tecla" data-valor="3">3</button>
+            <button class="tecla-somar" id="somar">=</button>
+          
+            <button class="tecla-zero" data-valor="0">0</button>
+            <button class="tecla" data-valor=".">,</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    <script type="module" src="src/script.js"></script>
+    <!-- 
+     ao utilizar o type="module" nao e possivel usar o onclick nos elementos, então tive que usar o addEventListener
+    -->
+  </body>
+</html>

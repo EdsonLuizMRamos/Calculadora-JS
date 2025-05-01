@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
+
+/* 
+  css alinhado atualmente funciona em cerca de 90% dos navegadores, site para verificar os dados:
+  https://caniuse.com/css-nesting
+*/
+
+:root {
+  --background: #080808;
+  --background-100: #1B1B1B;
+  --background-200: #121212;
+  --background-300: #0F0F0F;
+  --white-50: #BDC3D4;
+  --white-100: #7F8494;
+  --white-200: #7B7F8C;
+  --gradient: linear-gradient(to bottom, #D40E46, #C4208D);
+}
+
+body {
+  margin: 0;
+  background-color: light-dark(var(--background), white);
+  color: var(--white-50);
+  font-family: "Alexandria", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.container {
+  background-color: var(--background-300);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  user-select: none;
+
+  .history {
+    text-align: center;
+    width: 0px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &.h-open {
+    
+      width: 340px;
+    }
+
+    .h-titulo {
+      width: 100%;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    };
+
+    .display {
+      width: 100%;
+      height: 525px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 20px;
+      overflow: scroll;
+
+      div {
+        text-align: right;
+        margin-right: 30px;
+        .d-calculo {
+          margin: 0;
+          font-size: 14px;
+          color: var(--white-100);
+          cursor: default;
+
+          .operacao {
+            color: #972143;
+          }
+
+        }
+  
+        .d-resultado {
+          margin: 0;
+          font-size: 20px;
+          cursor: default;
+          transition: all 0.1s ease;
+          text-wrap: nowrap;
+          
+        }
+
+      }
+
+    }
+  }
+
+  .calculator {
+
+    overflow: hidden;
+    width: 340px;
+    height: 600px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.25);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+      position: relative;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      
+      .but-historico {
+        margin-left: 20px;
+        width: 26px;
+        height: 26px;
+        background: none;
+        border: none;
+        outline: none;
+        color: var(--white-200);
+        z-index: 10;
+        cursor: pointer;
+        transition: transform 1s ease;
+
+        &.h-open {
+          transform: rotate(-220deg);
+          color: #D40E46;
+        }
+
+        .bh-icon {
+          width: 100%;
+          height: 100%;
+        }
+      };
+      .c-titulo {
+        width: 100%;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        position: absolute;
+      };
+    };
+
+    .display {
+      margin: auto 0px 20px 0px;
+      width: 100%;
+      font-weight: bold;
+      div {
+        text-align: right;
+        margin-right: 30px;
+        .d-calculo {
+          margin: 0;
+          font-size: 16px;
+          color: var(--white-100);
+          cursor: default;
+
+          .operacao {
+            color: #972143;
+          }
+
+        }
+  
+        .d-resultado {
+          margin: 0;
+          font-size: 40px;
+          cursor: pointer;
+          transition: all 0.1s ease;
+
+          
+        }
+
+        .copiado {
+          margin: 0;
+          font-size: 40px;
+          cursor: pointer;
+          transition: all 0.1s ease;
+          color: #43d3a3;
+          transform: scale(0.95) translateX(4px);
+        }
+      }
+
+    }
+
+    .teclado{
+
+      padding: 30px 0px;
+      background-color: var(--background-200);
+      box-shadow: 0px -4px 8px 0px rgba(0,0,0,0.25);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .teclas {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 60px;
+        gap: 20px;
+        max-width: 300px;
+        border-radius: 16px;
+        
+        button {
+          font-size: 1.2rem;
+          font-weight: bold;
+          width: 60px;
+          height: 60px;
+          border: none;
+          border-radius: 10px;
+          background-color: #1e1e1e;
+          color: #fff;
+          cursor: pointer;
+          transition: background 0.2s ease;
+
+          &:hover {
+            filter: brightness(1.2);
+          }
+
+          &:active {
+            filter: brightness(0.9);
+            transform: scale(0.95);
+          }
+
+        }
+        
+        .tecla-deletar {
+          border: 2px solid var(--background-100);
+          background-color: transparent;
+          color: #D40E46;
+
+          &:hover {
+            background-color: var(--background-100);
+          }
+
+        }
+        
+        .tecla-somar {
+          grid-row: span 2;
+          background: var(--gradient);
+          font-weight: bold;
+          height: 100%;
+        }
+
+        .tecla-zero {
+          grid-column: span 2;
+          width: 100%;
+        }
+
+      }
+
+    }
+  }
+
+}
