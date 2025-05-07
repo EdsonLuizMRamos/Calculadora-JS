@@ -1,9 +1,9 @@
 import { variaveis } from "./context.js"
 
-let {operacao, resultado} = variaveis
+let { resultado, operacao } = variaveis
 
 export function atualizarDisplay(tipo) {
-  
+
   if (tipo == "calculo") {
     calculoDisplay.innerHTML = gerarOperacaoDisplay(operacao).operacaoEmDisplay
   } else if (tipo == "resultado") {
@@ -41,7 +41,7 @@ export function calcularResultado() {
 
   if (typeof ultimoItem != "number" && ( ultimoItem != "*" || ultimoItem != "/" || ultimoItem != "+" || ultimoItem != "-")) {
 
-    
+    // remove o ultimo item do array, que seria o operador, exemplo, [ 1, "+, 2 ] ele removeria o "+"   
     operacao.pop()
     resultado = eval(operacao.join(" "))
     operacao.push(ultimoItem)
@@ -51,7 +51,8 @@ export function calcularResultado() {
 
   }
 
-  resultado = eval(operacao.join(" "))
+  // resultado = eval(operacao.join(" "))
+  resultado = math.evaluate(operacao.join(" "))
   let resultadoEmDisplay = separadorPorMilhar(resultado)
 
   return {resultado, resultadoEmDisplay}
@@ -64,7 +65,6 @@ export function separadorPorMilhar(numero) {
 
   // uso para trocar o ponto que diferencia casa inteira de decimal por virgula
   let numeroEmString = numero.toString().replace(".", ",")
-
   // separo a parte inteira do decimal para ficar mais facil de formatar
   const [inteiro, decimal] = numeroEmString.split(",")
   // aqui utilizo um regex que peguei na web para formatar o numero com ponto nas posições corretas

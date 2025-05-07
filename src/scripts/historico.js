@@ -24,6 +24,7 @@ export function salvarHistorico(calculo) {
 
 export function removerDoHistorico(index) {
 
+
   historico.splice(index, 1)
   localStorage.setItem("historico", JSON.stringify(historico))
 
@@ -40,7 +41,7 @@ export function abrirHistorico() {
 export function atualizarHistoricoDisplay() {
   
   if (historico.length <= 0) return
-
+  
   historico.map((item, index) => {
     adicionarHistorico(item, index)
   })
@@ -51,6 +52,7 @@ export function adicionarHistorico(item, index) {
 
   const div = document.createElement("div")
     div.classList.add("historico-item")
+    div.setAttribute("index", index)
     div.innerHTML = `
         <p class="d-calculo">${gerarOperacaoDisplay(item.operacao).operacaoEmDisplay}</p>
         <p class="d-resultado">${separadorPorMilhar(item.calculo)}</p>

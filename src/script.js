@@ -22,7 +22,6 @@ export function adicionar(valor) {
     } else {
       atualizar = `${ultimoValor}${valor == "." ? "" : valor}`
     }
-
     // remove o ultimo item do array, que seria o numero, 
     // exemplo, [ 1, "+, 2 ] ele removeria o 2 que seria substituido pela variavel atualizar
     // que e formada pelo ultimo numero e o valor, ficando [ 1, "+", 26 ], caso o valor seja 6
@@ -66,7 +65,7 @@ export function podeAdicionarPonto(expressao) {
 
 export function somar() {
 
-  // verifica se o array esta vazio ou se o ultimo item do array não e um operador
+  // verifica se o array esta vazio ou se o ultimo item do array e um operador
   if (operacao.length <= 1 || typeof operacao[operacao.length - 1] == "string") return
   
   // calculo, salvo no historico, reseto o array de operação para o resultado do calculo e atualizo o display

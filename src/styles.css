@@ -116,7 +116,8 @@ body {
         width: 26px;
         height: 26px;
         background: none;
-        border: none;
+        border: 2px solid var(--white-200);
+        border-radius: 50%;
         outline: none;
         color: var(--white-200);
         z-index: 10;
@@ -126,6 +127,7 @@ body {
         &.h-open {
           transform: rotate(-220deg);
           color: #D40E46;
+          border-color: #D40E46;
         }
 
         .bh-icon {
@@ -249,5 +251,13 @@ body {
 
     }
   }
+
+}
+
+.texto {
+
+  background: linear-gradient(to bottom, #D40E46, #C4208D);
+  background-clip: text;
+  color: transparent;
 
 }

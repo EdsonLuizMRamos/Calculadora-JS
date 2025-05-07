@@ -7,7 +7,6 @@ import { limpar, limparTudo } from "./limpar.js"
 // ele percorre todos os botoes com data-valor e pega os valores do data-valor e verifica se e um numero, caso seja ele passa como numero, caso nao seja ele passa como string
 document.querySelectorAll("[data-valor]").forEach(botao => {
   botao.addEventListener("click", () => {
-
     const dataValor = botao.getAttribute("data-valor")
     const valor = isNaN(dataValor) ? dataValor : Number(dataValor)
 
